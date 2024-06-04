@@ -128,6 +128,9 @@ public final class GenericRow implements InternalRow, Serializable {
 
     @Override
     public boolean isNullAt(int pos) {
+        if (pos >= fields.length) {
+            return true;
+        }
         return this.fields[pos] == null;
     }
 

@@ -60,6 +60,9 @@ public class FlinkRowWrapper implements InternalRow {
 
     @Override
     public boolean isNullAt(int pos) {
+        if (pos >= row.getArity()) {
+            return true;
+        }
         return row.isNullAt(pos);
     }
 
@@ -148,6 +151,9 @@ public class FlinkRowWrapper implements InternalRow {
 
         @Override
         public boolean isNullAt(int pos) {
+            if (pos >= array.size()) {
+                return true;
+            }
             return array.isNullAt(pos);
         }
 

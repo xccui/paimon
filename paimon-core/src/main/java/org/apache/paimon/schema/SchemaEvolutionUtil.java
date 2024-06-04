@@ -26,13 +26,9 @@ import org.apache.paimon.data.InternalRow;
 import org.apache.paimon.predicate.LeafPredicate;
 import org.apache.paimon.predicate.Predicate;
 import org.apache.paimon.predicate.PredicateReplaceVisitor;
-import org.apache.paimon.types.ArrayType;
 import org.apache.paimon.types.DataField;
 import org.apache.paimon.types.DataType;
 import org.apache.paimon.types.DataTypeFamily;
-import org.apache.paimon.types.MapType;
-import org.apache.paimon.types.MultisetType;
-import org.apache.paimon.types.RowType;
 import org.apache.paimon.utils.InternalRowUtils;
 import org.apache.paimon.utils.ProjectedRow;
 
@@ -447,12 +443,12 @@ public class SchemaEvolutionUtil {
                                     CastExecutors.identityCastExecutor());
                 } else {
                     // TODO support column type evolution in nested type
-                    checkState(
-                            !(tableField.type() instanceof MapType
-                                    || dataField.type() instanceof ArrayType
-                                    || dataField.type() instanceof MultisetType
-                                    || dataField.type() instanceof RowType),
-                            "Only support column type evolution in atomic data type.");
+                    // checkState(
+                    //         !(tableField.type() instanceof MapType
+                    //                 || dataField.type() instanceof ArrayType
+                    //                 || dataField.type() instanceof MultisetType
+                    //                 || dataField.type() instanceof RowType),
+                    //         "Only support column type evolution in atomic data type.");
                     // Create getter with index i and projected row data will convert to underlying
                     // data
                     converterMapping[i] =

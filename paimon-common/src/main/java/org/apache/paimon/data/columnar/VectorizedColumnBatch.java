@@ -65,6 +65,9 @@ public class VectorizedColumnBatch implements Serializable {
     }
 
     public boolean isNullAt(int rowId, int colId) {
+        if (colId >= columns.length) {
+            return true;
+        }
         return columns[colId].isNullAt(rowId);
     }
 
