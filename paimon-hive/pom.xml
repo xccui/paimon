@@ -25,7 +25,7 @@ under the License.
     <parent>
         <artifactId>paimon-parent</artifactId>
         <groupId>org.apache.paimon</groupId>
-        <version>0.9-xccui-SNAPSHOT</version>
+        <version>0.9.1-xccui-SNAPSHOT</version>
     </parent>
 
     <artifactId>paimon-hive</artifactId>
